@@ -33,5 +33,5 @@ resource "aws_s3_object" "s3_bucket_images" {
   source       = "./proof/s3_bucket_images.png"
   content_type = "image/png"
 
-  etag = filemd5("./s3_bucket_images.png")
+  etag = filemd5("./proof/s3_bucket_images.png")
 }
