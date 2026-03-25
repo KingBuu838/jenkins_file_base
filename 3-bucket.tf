@@ -1,16 +1,16 @@
 
-terraform {
-backend "s3" {
-    bucket  = "tf-backend-gcheck"                 
-    key     = "jenkins-gcheck.tfstate" 
-    region  = "us-east-1"                          
-    encrypt = true                                 
-  } 
-}
+# terraform {
+# backend "s3" {
+#     bucket  = "tf-backend-gcheck"                 
+#     key     = "jenkins-gcheck.tfstate" 
+#     region  = "us-east-1"                          
+#     encrypt = true                                 
+#   } 
+# }
 
 
 resource "aws_s3_object" "pipeline-succes" {
-  bucket       = aws_s3_bucket.class7-jenkins-gcheck-bucket.bucket
+  bucket       = aws_s3_bucket.class7-gcheck.bucket
   key          = "pipeline_success.png"
   source       = "./proof/pipeline_success.png"
   content_type = "png"
@@ -19,7 +19,7 @@ resource "aws_s3_object" "pipeline-succes" {
 }
 
 resource "aws_s3_object" "webhook" {
-  bucket       = aws_s3_bucket.class7-jenkins-gcheck-bucket.bucket
+  bucket       = aws_s3_bucket.class7-gcheck.bucket
   key          = "webhook.png"
   source       = "./proof/webhook.png"
   content_type = "png"
