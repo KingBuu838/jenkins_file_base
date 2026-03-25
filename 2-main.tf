@@ -1,9 +1,10 @@
-resource "aws_s3_bucket" "frontend" {
-  bucket_prefix = "jenkins-bucket-"
+resource "aws_s3_bucket" "gcheck" {
+  bucket_prefix = "class7-jenkins-gcheck-bucket"
   force_destroy = true
   
 
   tags = {
-    Name = "Jenkins Bucket"
+    Name = "GCheck Bucket"
+    Environment = "Buckets"
   }
 }
