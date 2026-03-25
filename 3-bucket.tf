@@ -1,13 +1,11 @@
-
-# terraform {
-# backend "s3" {
-#     bucket  = "tf-backend-gcheck"                 
-#     key     = "jenkins-gcheck.tfstate" 
-#     region  = "us-east-1"                          
-#     encrypt = true                                 
-#   } 
-# }
-
+terraform {
+backend "s3" {
+    bucket  = "tf-gcheck-tuesday"             #terraform uses s3 backend first, backend bucket needs to already exist     
+    key     = "jenkins/gcheck/tuesday/terraform.tfstate" 
+    region  = "us-east-1"                          
+    encrypt = true                                 
+        } 
+    }
 
 resource "aws_s3_object" "pipeline-succes" {
   bucket       = aws_s3_bucket.class7-gcheck.bucket
