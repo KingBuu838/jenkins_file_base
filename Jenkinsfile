@@ -24,34 +24,34 @@ pipeline {
             }
         }
 
-        stage('Testing') {
-            // withEnv(["JFROG_BINARY_PATH=${tool 'jfrog-cli'}"]) {
-            // // The 'jf' tool is available in this scope.
-            // }
-            steps {
-                withCredentials([string(credentialsId: 'jfrog-creds', variable: 'JFROG_TOKEN')]) {
-                    // Show the installed version of JFrog CLI
-                    jf '-v'
+        // stage('Testing') {
+        //     // withEnv(["JFROG_BINARY_PATH=${tool 'jfrog-cli'}"]) {
+        //     // // The 'jf' tool is available in this scope.
+        //     // }
+        //     steps {
+        //         withCredentials([string(credentialsId: 'jfrog-creds', variable: 'JFROG_TOKEN')]) {
+        //             // Show the installed version of JFrog CLI
+        //             jf '-v'
                     
-                    // Show the configured JFrog Platform instances
-                    jf 'c show'
+        //             // Show the configured JFrog Platform instances
+        //             jf 'c show'
                     
-                    // Ping Artifactory
-                    jf 'rt ping'
+        //             // Ping Artifactory
+        //             jf 'rt ping'
                     
-                    // Create a file and upload it to the repository
-                    sh 'touch test-file'
-                    // Fixed upload command syntax
-                    sh 'jf rt upload test-file tf-terraform/ --url=https://trial7zoppg.jfrog.io/artifactory/ --user=mcdonald.dm.aaron@gmail.com --password=$JFROG_TOKEN'
+        //             // Create a file and upload it to the repository
+        //             sh 'touch test-file'
+        //             // Fixed upload command syntax
+        //             sh 'jf rt upload test-file tf-terraform/ --url=https://trial7zoppg.jfrog.io/artifactory/ --user=mcdonald.dm.aaron@gmail.com --password=$JFROG_TOKEN'
                     
-                    // Publish the build-info to Artifactory
-                    jf 'rt bp'
+        //             // Publish the build-info to Artifactory
+        //             jf 'rt bp'
                     
-                    // Fixed download command syntax
-                    sh 'jf rt download tf-terraform/test-file --url=https://trial7zoppg.jfrog.io/artifactory/ --user=mcdonald.dm.aaron@gmail.com --password=$JFROG_TOKEN'
-                }
-            } 
-        }
+        //             // Fixed download command syntax
+        //             sh 'jf rt download tf-terraform/test-file --url=https://trial7zoppg.jfrog.io/artifactory/ --user=mcdonald.dm.aaron@gmail.com --password=$JFROG_TOKEN'
+        //         }
+        //     } 
+        // }
     
         stage('Initialize Terraform') {
             steps {
