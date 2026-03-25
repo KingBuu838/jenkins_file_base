@@ -7,7 +7,7 @@ terraform {
   }
 
    backend "s3" {
-    bucket  = "tf-backend-4357232"                 # Name of the S3 bucket
+    bucket  = "jenkins-bucket-tf"                 # Name of the S3 bucket
     key     = "jenkins-test-013125.tfstate" # The name of the state file in the bucket
     region  = "us-east-1"                          # Use a variable for the region
     encrypt = true                                 # Enable server-side encryption (optional but recommended)
