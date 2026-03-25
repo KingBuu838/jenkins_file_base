@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/KingBuu838/jenkins_file_base' 
+                git branch: 'main', url: 'https://github.com/KingBuu838/jenkins_file_base.git' 
             }
         }
 
