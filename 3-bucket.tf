@@ -13,7 +13,7 @@ resource "aws_s3_object" "pipeline-succes" {
   bucket       = aws_s3_bucket.class7-gcheck.bucket
   key          = "pipeline_success.png"
   source       = "./proof/pipeline_success.png"
-  content_type = "png"
+  content_type = "image/png"
 
   etag = filemd5("./proof/pipeline_success.png")
 }
@@ -22,16 +22,16 @@ resource "aws_s3_object" "webhook" {
   bucket       = aws_s3_bucket.class7-gcheck.bucket
   key          = "webhook.png"
   source       = "./proof/webhook.png"
-  content_type = "png"
+  content_type = "image/png"
 
   etag = filemd5("./proof/webhook.png")
 }
 
-# resource "aws_s3_object" "" {
-#   bucket       = aws_s3_bucket.website.bucket
-#   key          = "trump_keisha.jpg"
-#   source       = "./trump_keisha.jpg"
-#   content_type = "image/jpg"
+resource "aws_s3_object" "s3_bucket_images" {
+  bucket       = aws_s3_bucket.class7-gcheck.bucket
+  key          = "s3_bucket_images.png"
+  source       = "./proof/s3_bucket_images.png"
+  content_type = "image/png"
 
-#   etag = filemd5("./trump_keisha.jpg")
-# }
+  etag = filemd5("./s3_bucket_images.png")
+}
