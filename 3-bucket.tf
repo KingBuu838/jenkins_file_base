@@ -33,3 +33,12 @@ resource "aws_s3_object" "s3_bucket_images" {
 
   etag = filemd5("./proof/s3_bucket_images.png")
 }
+
+resource "aws_s3_object" "armageddon_links" {
+  bucket       = aws_s3_bucket.class7-gcheck.bucket
+  key          = "armageddon_links.md"
+  source       = "./proof/armageddon_links.md"
+  content_type = "text/markdown"
+
+  etag = filemd5("./proof/armageddon_links.md")
+}
