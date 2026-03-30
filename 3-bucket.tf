@@ -25,13 +25,13 @@ resource "aws_s3_object" "webhook" {
   etag = filemd5("./proof/webhook.png")
 }
 
-resource "aws_s3_object" "s3_bucket_images" {
+resource "aws_s3_object" "s3_bucket_image" {
   bucket       = aws_s3_bucket.class7-gcheck.bucket
-  key          = "s3_bucket_images.png"
-  source       = "./proof/s3_bucket_images.png"
+  key          = "s3_bucket_image.png"
+  source       = "./proof/s3_bucket_image.png"
   content_type = "image/png"
 
-  etag = filemd5("./proof/s3_bucket_images.png")
+  etag = filemd5("./proof/s3_bucket_image.png")
 }
 
 resource "aws_s3_object" "armageddon_links" {
