@@ -46,10 +46,9 @@ resource "aws_s3_object" "armageddon_links" {
 resource "aws_s3_bucket_public_access_block" "class7-gcheck" {
   bucket = aws_s3_bucket.class7-gcheck.id
 
-  block_public_acls  = true
-  ignore_public_acls = true
-
-  block_public_policy     = false
+  block_public_acls  = false
+  ignore_public_acls = false
+  block_public_policy = false
   restrict_public_buckets = false
 }
 
